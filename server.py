@@ -1,6 +1,7 @@
 import sys, json, requests
 from flask import Flask, request
 from google_places import get_attractions
+import _thread
 
 try:
     import apiai
@@ -44,7 +45,7 @@ def handle_message():
     if data["object"] == "page":
         for entry in data["entry"]:
             for messaging_event in entry["messaging"]:
-                return "ok"
+
                 if messaging_event.get("message"):  
                     sender_id = messaging_event["sender"]["id"]        
                     recipient_id = messaging_event["recipient"]["id"]  
