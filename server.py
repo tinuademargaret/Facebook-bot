@@ -99,7 +99,6 @@ def parse_user_message(user_text):
         response = api_response['fulfillment']['speech']
         if attractions:
             response += '. ' + attractions
-        
         return response
 
 def send_message_response(sender_id, message_text):
